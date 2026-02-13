@@ -208,14 +208,14 @@ body {
         width: 350px !important;
         height: 458px !important;
         
-        /* 1. SCALE: This shrinks the whole book & tabs to 70% of desktop size */
         transform: scale(0.7) !important; 
         
-        /* 2. PIN TO LEFT: This anchors the scale so it moves left, revealing tabs */
-        transform-origin: left center !important;
+        /* 1. Change to center center */
+        transform-origin: center center !important;
         
-        /* 3. NUDGE: Moves the whole unit slightly away from the very left edge */
-        margin-left: 19px !important; 
+        /* 2. Remove margin-left and use these instead to center the whole unit */
+        margin: 0 auto !important;
+        left: -35px !important; 
         
         position: relative;
         
