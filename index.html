@@ -2279,6 +2279,26 @@ a, button, .bookmark, .music-link-item, .social-icons a, iframe {
     box-shadow: none !important;
     padding: 1px !important;
     z-index: 9999;
+    
+    .book-container {
+        width: 240px;      /* Reduced from 300px */
+        height: 314px;     /* Reduced proportionally from 392px */
+        margin-right: 30px; /* Gives extra room for the tabs on the right */
+    }
+
+    .bookmarks {
+        right: -70px;      /* Moves tabs closer to the smaller book */
+        gap: 12px;         /* Tighter spacing between tabs */
+    }
+
+    .bookmark {
+        width: 75px;       /* Makes tabs shorter */
+        height: 32px;      /* Makes tabs thinner */
+    }
+
+    .bookmark-shape {
+        font-size: 11px;   /* Smaller text for the smaller tabs */
+    
   }
 
   /* Inputs + button */
