@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -944,6 +946,7 @@ body {
     margin-bottom: 12px;
     font-size: 16px;
     font-weight: normal !important;
+    font-style: normal !important; /* This removes the italics */
     color: #000000 !important;
 }
 /* Helvetica Override & Small Font Size */
@@ -1397,9 +1400,9 @@ a, button, .bookmark, .music-link-item, .social-icons a, iframe {
         <div class="page" id="contact">
     <button class="back-button" onclick="closePage()">home</button>
     
-    <div class="contact-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; text-align: center; margin: 0 !important; position: absolute; top: 0; left: 0;">
+    <div class="contact-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; text-align: center; margin: 2 !important; position: absolute; top: 1; left: 0;">
         
-        <p class="no-dates" style="margin: 0; line-height: 1.1; padding-bottom: 5px;">contact</p>
+        <p class="no-dates" style="margin: 0; line-height: 1.1; padding-bottom
 
         <p style="margin: 0; line-height: 1.1;">for booking, press, or general inquiries:</p>
         <p style="margin: 0; line-height: 1.1;"><a href="mailto:katsophiamgmt@gmail.com">katsophiamgmt@gmail.com</a></p>
@@ -1410,8 +1413,21 @@ a, button, .bookmark, .music-link-item, .social-icons a, iframe {
         
         <hr style="border: 0; border-top: 1px solid rgba(139, 115, 85, 0.2); margin: 10px 0; width: 60%;">
 
-        <p style="margin: 0; line-height: 1.1;">join my fans on <a href="https://discord.gg/xVYJrqqzTC" target="_blank">discord</a> 🩷</p>
+        <p style="margin: 0; line-height: 1.1;">join my fans on <a href="https://discord.gg/xVYJrqqzTC" target="_blank">discord</a> 👾 &</p>
+
         
+        <p style="margin-top: 25px; font-style: italic;">join the fan map!</p>
+        
+        <hr style="border: 0; border-top: 1px solid rgba(139, 115, 85, 0.2); margin: .1px 0; width: 60%;">
+        
+        <div class="padlet-embed-container">
+            <iframe src="https://padlet.com/katsophiamusic/kat-sophia-fan-map-6l0ha8432kh3uy01" 
+                    allow="camera; microphone; geolocation" 
+                    style="width:100%;height:100%;display:block;padding:0;margin:0;">
+            </iframe>
+        </div>
+    </div>
+</div>
     </div>
 </div>
     </div>
@@ -2380,6 +2396,21 @@ a, button, .bookmark, .music-link-item, .social-icons a, iframe {
     pointer-events: none !important;
 }
 
+/* Container for the Padlet Map */
+.padlet-embed-container {
+    width: 100%;
+    height: 350px; /* Adjust height as needed */
+    margin-top: 20px;
+    border: 1px solid rgba(139, 115, 85, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.padlet-embed-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 
     </style>
       
