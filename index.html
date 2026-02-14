@@ -197,8 +197,35 @@ body {
 
         .book-container {
             position: relative;
-            width: 350px;
-            height: 458px;
+    position: relative;
+    width: 400px !important; 
+    height: 524px !important;
+    left: 30px; 
+    margin: 0 auto;
+    
+        .bookmark {
+    width: 110px !important;  
+    height: 47px !important;  
+    
+    /* This forces the text to the horizontal and vertical center */
+    display: flex !important; 
+    justify-content: center !important; /* Horizontal center */
+    align-items: center !important;     /* Vertical center */
+    text-align: center !important; /* Ensures the text line itself is centered */
+    padding-left: 0 !important; 
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+.bookmark-shape {
+    font-size: 15.5px !important; 
+    padding-left: 0px !important;
+}
+
+.bookmarks {
+    right: -110px !important; /* Matches the new bookmark width */
+    gap: 22px !important;     /* Balanced vertical spacing */
+}          z-index: 10;
         }
 
         @media (max-width: 768px) {
