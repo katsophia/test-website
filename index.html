@@ -932,14 +932,14 @@ body {
     letter-spacing: 0.5px;
     text-transform: none; 
 }
-.contact-content {
+.connect-content {
     color: #000000 !important;
     text-align: center;
     padding: 20px;
     margin-top: 40px;
 }
 
-.contact-content p {
+.connect-content p {
     line-height: 1.2 !important;
     margin-bottom: 12px;
     font-size: 16px;
@@ -948,15 +948,15 @@ body {
     color: #000000 !important;
 }
 /* Helvetica Override & Small Font Size */
-.shows-content, .contact-content, 
-.shows-content p, .contact-content p, 
-.shows-content a, .contact-content a {
+.shows-content, .connect-content, 
+.shows-content p, .connect-content p, 
+.shows-content a, .connect-content a {
     font-family: 'Helvetica', 'Arial', sans-serif !important;
 }
 
 /* Unifies font size across all content pages and the gallery */
 .shows-content p, 
-.contact-content p, 
+.connect-content p, 
 #about-letter-box p, 
 .gallery-caption p {
     font-size: 11.5px !important;
@@ -967,7 +967,7 @@ body {
 
 /* Ensure all links within these sections match */
 .shows-content a, 
-.contact-content a, 
+.connect-content a, 
 #about-letter-box a,
 .gallery-caption a {
     font-size: 11.5px !important;
@@ -978,14 +978,14 @@ body {
     color: #000 !important;
 }
 
-/* Shows & Contact Links (Pink) */
-.shows-content a, .contact-content a {
+/* Shows & connect Links (Pink) */
+.shows-content a, .connect-content a {
     color: #D0878B !important;
     text-decoration: underline !important;
 }
 
 /* The Pink Links */
-.shows-content a, .contact-content a {
+.shows-content a, .connect-content a {
     color: #D0878B !important;
     text-decoration: underline;
     font-weight: normal !important;
@@ -996,15 +996,15 @@ body {
 .no-dates {
     font-style: italic !important;
 }
-/* Styling for links in both Shows and Contact sections */
-.shows-content a, .contact-content a {
+/* Styling for links in both Shows and connect sections */
+.shows-content a, .connect-content a {
     color: #D0878B !important; /* Dusty Pink */
     text-decoration: underline;
     font-weight: normal !important; /* Ensures no bold */
 }
 
 /* Ensure body text stays black */
-.shows-content p, .contact-content p {
+.shows-content p, .connect-content p {
     color: #000000 !important;
     line-height: 1.2 !important;
     margin-bottom: 12px;
@@ -1219,7 +1219,7 @@ a, button, .bookmark, .music-link-item, .social-icons a, iframe {
     
     <div class="bookmark" onclick="openPage('shows')"><div class="bookmark-shape">shows</div></div>
     
-    <div class="bookmark" onclick="openPage('contact')"><div class="bookmark-shape">contact</div></div>
+    <div class="bookmark" onclick="openPage('connect')"><div class="bookmark-shape">connect</div></div>
 </div>
 
         <div class="page" id="music">
@@ -1395,10 +1395,10 @@ a, button, .bookmark, .music-link-item, .social-icons a, iframe {
     </div>
 </div>
 
-<div class="page" id="contact">
+<div class="page" id="connect">
     <button class="back-button" onclick="closePage()">home</button>
     
-    <div class="contact-content" style="display: flex; flex-direction: column; align-items: center; width: 100%; text-align: center; padding-top: 20px;">
+    <div class="connect-content" style="display: flex; flex-direction: column; align-items: center; width: 100%; text-align: center; padding-top: 20px;">
         
         <p style="margin: 0; line-height: 1.1;">for booking, press, or general inquiries:</p>
         <p style="margin: 0; line-height: 1.1;"><a href="mailto:katsophiamgmt@gmail.com">katsophiamgmt@gmail.com</a></p>
@@ -2593,11 +2593,11 @@ a, button, .bookmark, .music-link-item, .social-icons a, iframe {
         // ALLOW drawing if touching the Book Cover or the Popup Mailing List
         const isCover = e.target.closest('.book');
         const isPopup = e.target.closest('.popup');
-        const isContact = e.target.closest('#contact'); // Specifically allow contact page drawing
+        const isConnect = e.target.closest('#connect'); // Specifically allow connect page drawing
 
-        if (!isCover && !isPopup && !isContact) {
-            // If they aren't on cover, contact, or popup, and no scroll page is open,
-            // check if they are touching a generic "page" area (like Contact)
+        if (!isCover && !isPopup && !isConnect) {
+            // If they aren't on cover, connect, or popup, and no scroll page is open,
+            // check if they are touching a generic "page" area (like Connect)
             if (!e.target.closest('.page')) return;
         }
     }
