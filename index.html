@@ -45,7 +45,7 @@
 
     <style>
 
-    .popup {
+.popup {
   position: fixed;
   top: 18px;
   right: 25px;
@@ -58,6 +58,14 @@
   width: 300px; /* adjust if needed */
   border-radius: 0px; /* optional */
   font-family: sans-serif;
+}
+
+/* Desktop-only: Scales down the entire box, font, and padding uniformly to 2/3 size */
+@media (min-width: 769px) {
+  .popup {
+    transform: scale(0.66);
+    transform-origin: top right; /* Ensures it stays pinned nicely to your top-right corner */
+  }
 }
 
 .popup p {
