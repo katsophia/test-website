@@ -1,1 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kat Sophia — Electronic Press Kit</title>
+<style>
+  :root{
+    --paper:#D0878B; 
+    --kraft:#DCC9A3;
+    --kraft-dark:#B89E72;
+    --ink:#000000; 
+    --coral:#E8637A;
+    --tape:#F4C95D;
+    --sage:#7C9473;
+  }
 
+  *{ 
+    box-sizing:border-box; 
+    text-transform: lowercase;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; animation:none !important; }
+  }
+
+  body{
+    margin:0;
+    background-color:var(--paper);
+    
+    /* 1. Link all 4 of your clear-background drawings separated by commas */
+    background-image: 
+      url('drawing1.png'), 
+      url('drawing2.png'), 
+      url('drawing3.png'), 
+      url('drawing4.png');
+    
+    /* 2. Stop them from repeating so they act as individual large stamps */
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; 
+    
+    /* 3. Make them big! (Adjust this pixel size to change how large they are) */
+    background-size: 320px auto, 300px auto, 340px auto, 310px auto; 
+    
+    /* 4. Position them down the page. 
+          The first percentage is left/right (e.g., 5% is far left, 95% is far right)
+          The second percentage is how far down the scroll length they sit */
+    background-position: 
+      5% 12%,   /* Drawing 1: Top left side */
+      95% 38%,  /* Drawing 2: Upper right side */
+      3% 65%,   /* Drawing 3: Lower left side */
+      92% 88%;  /* Drawing 4: Bottom right side */
+      
+    background-attachment: scroll; 
+    color:var(--ink);
+    font-family:"Times New Roman", Times, serif;
+    line-height:1.6;
+    padding: 32px 16px 64px;
+  }
+
+  .page{
+    max-width:750px; 
+    margin:0 auto;
+  }
+
+  h1,h2,h3{
+    font-family:"Times New Roman", Times, serif;
+    font-weight:700;
+    margin:0;
+    line-height:1;
+  }
+
+  .marker-label{
+    font-family:"Times New Roman", Times, serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.03em;
+  }
+
+  a{ color:var(--ink); }
+
+  /* ---------- tape ---------- */
+  .tape{
+    position:absolute;
+    width:55px;
+    height:20px;
+    background: repeating-linear-gradient(45deg, var(--tape), var(--tape) 6px, #e8bb45 6px, #e8bb45 12px);
+    opacity:0.85;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    z-index: 10;
+  }
+  .tape.pink{ background: repeating-linear-gradient(45deg, #f2a9b8, #f2a9b8 6px, var(--coral) 6px, var(--coral) 12px); }
+  .tape.sage{ background: repeating-linear-gradient(45deg, #c3d2ba, #c3d2ba 6px, var(--sage) 6px, var(--sage) 12px); }
+
+  /* ---------- card base ---------- */
+  .card{
+    position:relative;
+    background: #ffffff;
+    border: none;
+    border-radius: 2px;
+    padding: 24px 26px;
+    margin: 0 auto 46px;
+    transition: transform 0.2s ease;
+  }
+  .card:hover{ transform: rotate(0deg) !important; }
+
+  .rot-l{ transform: rotate(-1.4deg); }
+  .rot-r{ transform: rotate(1.6deg); }
+  .rot-ls{ transform: rotate(-0.7deg); }
+  .rot-rs{ transform: rotate(0.9deg); }
+
+  /* ---------- new hero section layout ---------- */
+  .hero{
+    text-align:center;
+    margin-bottom:56px;
+    padding-top:20px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* Center Logo Style */
+  .logo-container {
+    width: 100%;
+  }
+  .logo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Left and Right Small Image Styles (No polaroid frames) */
+  .hero-side-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2); 
+  }
+  .hero-side-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero .tagline{
+    font-family:"Times New Roman", Times, serif;
+    font-size:19px;
+    color:var(--ink);
+    margin-top:12px;
+  }
+  .genre-tags{
+    margin-top:16px;
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .genre-tags span{
+    font-family:"Times New Roman", Times, serif;
+    font-size:13px;
+    border:1.5px dashed var(--ink);
+    padding:4px 12px;
+    border-radius:20px;
+    background:#ffffff;
+  }
+
+  /* ---------- section heading ---------- */
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .section-head h2{ font-size:38px; }
+  .section-head .marker-label{ color:var(--sage); }
+
+  /* ---------- bio ---------- */
+  .quick-pitch{
+    font-family:"Times New Roman", Times, serif;
+    font-size:17px;
+    color:var(--ink);
+    border-left:3px solid var(--ink);
+    padding-left:14px;
+    margin:0 0 16px;
+  }
+  .bio p{ margin:0 0 14px; font-size:14.5px; }
+  .bio p:last-child{ margin-bottom:0; }
+  .edit-me{ color:var(--ink); font-style:italic; }
+
+  /* ---------- music ---------- */
+  .platform-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+  }
+  .platform-row a{
+    font-family:"Times New Roman", Times, serif;
+    font-size:14px;
+    text-decoration:none;
+    border:2px solid var(--ink);
+    border-radius: 30px;
+    padding:7px 16px;
+    background:var(--tape);
+    box-shadow: 2px 2px 0 var(--ink);
+    transition: transform 0.15s ease;
+  }
+  .platform-row a:hover{ transform: translate(-1px,-1px); }
+
+  .embed-slot{
+    border:2px dashed var(--kraft-dark);
+    border-radius:6px;
+    padding:22px;
+    text-align:center;
+    font-family:"Times New Roman", Times, serif;
+    color:var(--kraft-dark);
+    font-size:14px;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(184,158,114,0.08) 10px, rgba(184,158,114,0.08) 20px);
+  }
+  .track-list{ list-style:none; margin:18px 0 0; padding:0; font-size:14px; }
+  .track-list li{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px dotted var(--kraft-dark);
+    padding:8px 2px;
+  }
+  .track-list li span:last-child{ color: var(--ink); opacity:0.6; }
+
+  /* ---------- photos ---------- */
+  .photo-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:14px;
+  }
+  .photo-tile{
+    aspect-ratio: 4/5;
+    background: var(--kraft);
+    border:1px solid var(--kraft-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Times New Roman", Times, serif;
+    font-size:12px;
+    text-align:center;
+    color:var(--kraft-dark);
+    padding:8px;
+  }
+  .download-note{
+    margin-top:14px;
+    font-size:13px;
+  }
+  .download-note a{ color:var(--ink); font-weight:bold; text-decoration: underline; }
+
+  /* ---------- connect ---------- */
+  .connect-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:14px;
+    font-size:14px;
+  }
+  .connect-grid .marker-label{ display:block; color:var(--sage); margin-bottom:4px; }
+  .connect-grid a{ text-decoration:underline; text-decoration-color:var(--ink); }
+
+  .social-strip{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1.5px dashed var(--kraft-dark);
+  }
+  .social-strip a{
+    font-family:"Times New Roman", Times, serif;
+    font-size:13px;
+    text-decoration:none;
+    border-bottom:2px solid var(--sage);
+  }
+
+  footer{
+    text-align:center;
+    font-family:"Times New Roman", Times, serif;
+    font-size:13px;
+    color: var(--kraft-dark);
+    margin-top: 20px;
+  }
+
+  @media (max-width:580px){
+    /* Hides the big layout drawings on small screens so they don't crowd mobile phones */
+    body { background-image: none; } 
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .hero-side-img {
+      max-width: 150px;
+      margin: 0 auto;
+    }
+    .logo-container {
+      order: -1; 
+    }
+    .photo-grid{ grid-template-columns: repeat(2,1fr); }
+    .connect-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    
+    <div class="hero-grid">
+      
+      <!-- LEFT SIDE: Small picture with tape (No polaroid frame) -->
+      <div class="hero-side-img" style="transform: rotate(-3deg);">
+        <div class="tape" style="top:-10px; left:50%; margin-left:-27px; transform:rotate(-5deg);"></div>
+        <img src="left-image-option.jpg" alt="small left press photo option">
+      </div>
+
+      <!-- CENTER: Main title name image (Biggest element) -->
+      <div class="logo-container">
+        <img src="name-logo.png" alt="kat sophia logo header">
+      </div>
+
+      <!-- RIGHT SIDE: Another image option slot -->
+      <div class="hero-side-img" style="transform: rotate(4deg);">
+        <div class="tape pink" style="top:-10px; left:50%; margin-left:-27px; transform:rotate(3deg);"></div>
+        <img src="right-image-option.jpg" alt="small right press photo option">
+      </div>
+
+    </div>
+
+    <p class="tagline">bedroom pop with the volume knob broken</p>
+
+    <div class="genre-tags">
+      <span>indie pop</span>
+      <span>DIY</span>
+      <span>dream pop</span>
+    </div>
+  </header>
+
+  <!-- ============ QUICK BIO ============ -->
+  <section class="card rot-l">
+    <div class="tape pink" style="top:-14px; left:30px; transform:rotate(-6deg);"></div>
+    <div class="section-head">
+      <h2>hi, i'm kat</h2>
+      <span class="marker-label">— the short version</span>
+    </div>
+    <p class="quick-pitch">"[one punchy sentence that sums up your sound and story — e.g. kat sophia writes glittery, lo-fi pop songs recorded on a four-track in her closet, about heartbreak, houseplants, and growing up weird.]"</p>
+  </section>
+
+  <!-- ============ FULL BIO ============ -->
+  <section class="card rot-rs">
+    <div class="tape sage" style="top:-14px; right:40px; transform:rotate(5deg);"></div>
+    <div class="section-head">
+      <h2>the whole story</h2>
+    </div>
+    <div class="bio">
+      <p><span class="edit-me">[replace this paragraph.]</span> start with where you're from and how you started making music — the scrappier and more specific, the better. mention the instruments, gear, or weird methods you use (four-track, garageband, a guitar held together with tape).</p>
+      <p>second paragraph: what your music is about, and who it's for. name-drop a release, an ep, a song title. mention any press, playlist placements, or milestones here if you have them — if not, delete this line.</p>
+      <p>third paragraph: what's next. a new ep, a tour, a collaboration. end on momentum.</p>
+    </div>
+  </section>
+
+  <!-- ============ MUSIC ============ -->
+  <section class="card rot-r">
+    <div class="tape pink" style="top:-14px; left:24px; transform:rotate(-4deg);"></div>
+    <div class="section-head">
+      <h2>listen</h2>
+    </div>
+    <div class="platform-row">
+      <a href="#">spotify ↗</a>
+      <a href="#">bandcamp ↗</a>
+      <a href="#">apple music ↗</a>
+      <a href="#">soundcloud ↗</a>
+    </div>
+    <div class="embed-slot">
+      drop your spotify / bandcamp embed code here<br>
+      (paste the iframe from your track or album's "embed" or "share" menu)
+    </div>
+    <ul class="track-list">
+      <li><span>[latest single title]</span><span>2026</span></li>
+      <li><span>[ep or album title]</span><span>2025</span></li>
+      <li><span>[earlier release]</span><span>2024</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ PHOTOS ============ -->
+  <section class="card rot-ls">
+    <div class="tape sage" style="top:-14px; right:30px; transform:rotate(4deg);"></div>
+    <div class="section-head">
+      <h2>photos</h2>
+      <span class="marker-label">— for press use</span>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-tile">press photo 01</div>
+      <div class="photo-tile">press photo 02</div>
+      <div class="photo-tile">press photo 03</div>
+    </div>
+    <p class="download-note">full resolution, high-quality, and cleared for press use. <a href="#">download the full photo pack ↗</a></p>
+  </section>
+
+  <!-- ============ CONNECT / CONTACT ============ -->
+  <section class="card rot-l">
+    <div class="tape pink" style="top:-14px; left:50%; margin-left:-35px; transform:rotate(3deg);"></div>
+    <div class="section-head">
+      <h2>get in touch</h2>
+    </div>
+    <div class="connect-grid">
+      <div class="block">
+        <span class="marker-label">booking</span>
+        <a href="mailto:booking@katsophia.com">booking@katsophia.com</a>
+      </div>
+      <div class="block">
+        <span class="marker-label">press</span>
+        <a href="mailto:press@katsophia.com">press@katsophia.com</a>
+      </div>
+      <div class="block">
+        <span class="marker-label">management</span>
+        <a href="mailto:[management contact]">[name / email]</a>
+      </div>
+      <div class="block">
+        <span class="marker-label">general</span>
+        <a href="mailto:hello@katsophia.com">hello@katsophia.com</a>
+      </div>
+    </div>
+    <div class="social-strip">
+      <a href="#">instagram</a>
+      <a href="#">tiktok</a>
+      <a href="#">youtube</a>
+      <a href="#">bandcamp</a>
+    </div>
+  </section>
+
+  <footer>
+    made with tape, coffee, and too many browser tabs — katsophia.com<br>
+    epk last updated [month, year]
+  </footer>
+
+</div>
+</body>
+</html>
