@@ -6,7 +6,7 @@
 <title>Kat Sophia — Electronic Press Kit</title>
 <style>
   :root{
-    --paper:#ffffff; /* Changed main background to crisp white */
+    --paper:#ffffff; 
     --kraft:#DCC9A3;
     --kraft-dark:#B89E72;
     --ink:#000000; 
@@ -28,24 +28,22 @@
     margin:0;
     background-color:var(--paper);
     
-    /* 1. Link all 4 drawings */
+    /* Change the extension below to match your files (.png or .PNG) */
     background-image: 
-      url('drawing1.png'), 
-      url('drawing2.png'), 
-      url('drawing3.png'), 
-      url('drawing4.png');
+      url('drawing1.PNG'), 
+      url('drawing2.PNG'), 
+      url('drawing3.PNG'), 
+      url('drawing4.PNG');
     
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; 
-    
-    /* 2. Make them full size across the background width */
     background-size: 100% auto, 100% auto, 100% auto, 100% auto; 
     
-    /* 3. Spread them out equally down the scroll length of the page */
+    /* Spaced out more: pushed top up, pulled bottom slightly up, widened middle */
     background-position: 
-      center 0%,   /* Drawing 1: Very top */
-      center 33%,  /* Drawing 2: One-third down */
-      center 66%,  /* Drawing 3: Two-thirds down */
-      center 100%; /* Drawing 4: Very bottom */
+      center -5%,   /* Drawing 1: Moved up higher */
+      center 30%,   /* Drawing 2: Spread out */
+      center 70%,   /* Drawing 3: Spread out */
+      center 95%;   /* Drawing 4: Pulled up slightly from absolute bottom */
       
     background-attachment: scroll; 
     color:var(--ink);
@@ -59,16 +57,17 @@
     margin:0 auto;
   }
 
+  /* Headings made smaller (down to 28px from 38px) */
   h1,h2,h3{
     font-family:"Times New Roman", Times, serif;
-    font-weight:700;
+    font-weight:normal;
     margin:0;
     line-height:1;
   }
 
   .marker-label{
     font-family:"Times New Roman", Times, serif;
-    font-weight:700;
+    font-weight:normal;
     font-size:13px;
     letter-spacing:0.03em;
   }
@@ -120,7 +119,6 @@
     margin-bottom: 20px;
   }
 
-  /* Center Logo Style */
   .logo-container {
     width: 100%;
   }
@@ -130,7 +128,6 @@
     display: block;
   }
 
-  /* Left and Right Small Image Styles (No polaroid frames) */
   .hero-side-img {
     position: relative;
     width: 100%;
@@ -138,7 +135,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.05); /* slightly darkened visual placeholder for white BG */
+    background: rgba(0, 0, 0, 0.05); 
   }
   .hero-side-img img {
     width: 100%;
@@ -147,26 +144,23 @@
     display: block;
   }
 
-  .hero .tagline{
-    font-family:"Times New Roman", Times, serif;
-    font-size:19px;
-    color:var(--ink);
-    margin-top:12px;
-  }
   .genre-tags{
-    margin-top:16px;
+    margin-top:24px;
     display:flex;
     gap:8px;
     justify-content:center;
     flex-wrap:wrap;
   }
+  
+  /* All stickers set to white background with explicit black border */
   .genre-tags span{
     font-family:"Times New Roman", Times, serif;
     font-size:13px;
-    border:1.5px dashed var(--ink);
-    padding:4px 12px;
+    border:1px solid var(--ink);
+    padding:6px 14px;
     border-radius:20px;
-    background:#ffffff;
+    background: #ffffff;
+    color: var(--ink);
   }
 
   /* ---------- section heading ---------- */
@@ -176,7 +170,7 @@
     gap:10px;
     margin-bottom:18px;
   }
-  .section-head h2{ font-size:38px; }
+  .section-head h2{ font-size:28px; } /* Small font adjustment */
   .section-head .marker-label{ color:var(--sage); }
 
   /* ---------- bio ---------- */
@@ -203,14 +197,20 @@
     font-family:"Times New Roman", Times, serif;
     font-size:14px;
     text-decoration:none;
-    border:2px solid var(--ink);
+    border:1px solid var(--ink);
     border-radius: 30px;
     padding:7px 16px;
-    background:var(--tape);
-    box-shadow: 2px 2px 0 var(--ink);
-    transition: transform 0.15s ease;
+    color: var(--ink);
+    box-shadow: none; 
+    transition: opacity 0.15s ease;
   }
-  .platform-row a:hover{ transform: translate(-1px,-1px); }
+  .platform-row a:hover{ opacity: 0.75; }
+
+  /* Pastel platform colors */
+  .platform-row .btn-spotify { background: #bbf2cc; border-color: #9cdbaf; }
+  .platform-row .btn-bandcamp { background: #bfe3f2; border-color: #a2ccd9; }
+  .platform-row .btn-apple { background: #f7cad3; border-color: #e0b2bb; }
+  .platform-row .btn-soundcloud { background: #fcd4b8; border-color: #e3bba1; }
 
   .embed-slot{
     border:2px dashed var(--kraft-dark);
@@ -315,13 +315,13 @@
     
     <div class="hero-grid">
       
-      <!-- LEFT SIDE: Small picture with tape (No polaroid frame) -->
+      <!-- LEFT SIDE: Small picture with tape -->
       <div class="hero-side-img" style="transform: rotate(-3deg);">
         <div class="tape" style="top:-10px; left:50%; margin-left:-27px; transform:rotate(-5deg);"></div>
         <img src="left-image-option.jpg" alt="small left press photo option">
       </div>
 
-      <!-- CENTER: Main title name image (Biggest element) -->
+      <!-- CENTER: Main title name image -->
       <div class="logo-container">
         <img src="name-logo.png" alt="kat sophia logo header">
       </div>
@@ -334,12 +334,10 @@
 
     </div>
 
-    <p class="tagline">bedroom pop with the volume knob broken</p>
-
     <div class="genre-tags">
+      <span>singer-songwriter</span>
       <span>indie pop</span>
-      <span>DIY</span>
-      <span>dream pop</span>
+      <span>bedroom pop</span>
     </div>
   </header>
 
@@ -347,7 +345,7 @@
   <section class="card rot-l">
     <div class="tape pink" style="top:-14px; left:30px; transform:rotate(-6deg);"></div>
     <div class="section-head">
-      <h2>hi, i'm kat</h2>
+      <h2>hi, i'm kat!</h2> <!-- Added exclamation mark -->
       <span class="marker-label">— the short version</span>
     </div>
     <p class="quick-pitch">"[one punchy sentence that sums up your sound and story — e.g. kat sophia writes glittery, lo-fi pop songs recorded on a four-track in her closet, about heartbreak, houseplants, and growing up weird.]"</p>
@@ -357,7 +355,7 @@
   <section class="card rot-rs">
     <div class="tape sage" style="top:-14px; right:40px; transform:rotate(5deg);"></div>
     <div class="section-head">
-      <h2>the whole story</h2>
+      <h2>about</h2> 
     </div>
     <div class="bio">
       <p><span class="edit-me">[replace this paragraph.]</span> start with where you're from and how you started making music — the scrappier and more specific, the better. mention the instruments, gear, or weird methods you use (four-track, garageband, a guitar held together with tape).</p>
@@ -373,10 +371,11 @@
       <h2>listen</h2>
     </div>
     <div class="platform-row">
-      <a href="#">spotify ↗</a>
-      <a href="#">bandcamp ↗</a>
-      <a href="#">apple music ↗</a>
-      <a href="#">soundcloud ↗</a>
+      <!-- Added pastel buttons classes below -->
+      <a href="#" class="btn-spotify">spotify ↗</a>
+      <a href="#" class="btn-bandcamp">bandcamp ↗</a>
+      <a href="#" class="btn-apple">apple music ↗</a>
+      <a href="#" class="btn-soundcloud">soundcloud ↗</a>
     </div>
     <div class="embed-slot">
       drop your spotify / bandcamp embed code here<br>
