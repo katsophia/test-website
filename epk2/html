@@ -1,1 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kat Sophia — Electronic Press Kit</title>
+<link rel="icon" type="image/png" href="epk_favicon.png">
 
+<style>
+  :root{
+    --paper:#ffffff;
+    --kraft:#DCC9A3;
+    --kraft-dark:#B89E72;
+    --ink:#000000;
+    --coral:#E8637A;
+    --tape:#F4C95D;
+    --sage:#7C9473;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3, .genre-tags span, .platform-row a, .marker-label, .social-strip a {
+    text-transform: lowercase;
+  }
+
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image: url('drawing4.png'), url('drawing1.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+    background-position: center 87px, center bottom;
+    background-attachment: scroll;
+    color:var(--ink);
+    font-family:"Times New Roman", Times, serif;
+    line-height:1.4;
+    padding: 20px 16px;
+  }
+
+  .page{
+    max-width: 1000px;
+    margin:0 auto;
+  }
+
+  h1,h2,h3{
+    font-family:"Times New Roman", Times, serif;
+    font-weight:normal;
+    margin:0;
+    line-height:1;
+  }
+
+  .marker-label{
+    font-family:"Times New Roman", Times, serif;
+    font-weight:normal;
+    font-size:13px;
+    letter-spacing:0.03em;
+  }
+
+  a{ color:var(--ink); }
+
+  /* ---------- 2-Column Grid Layout ---------- */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ---------- tape ---------- */
+  .tape{
+    position:absolute;
+    width:55px;
+    height:20px;
+    background: repeating-linear-gradient(45deg, var(--tape), var(--tape) 6px, #e8bb45 6px, #e8bb45 12px);
+    opacity:0.85;
+    box-shadow:0 1px 2px rgba(0,0,0,0.15);
+    z-index:10;
+  }
+
+  .tape.pink{
+    background: repeating-linear-gradient(45deg, #f2a9b8, #f2a9b8 6px, var(--coral) 6px, var(--coral) 12px);
+  }
+
+  .tape.sage{
+    background: repeating-linear-gradient(45deg, #c3d2ba, #c3d2ba 6px, var(--sage) 6px, var(--sage) 12px);
+  }
+
+  /* ---------- card base ---------- */
+  .card{
+    position:relative;
+    background:#ffffff;
+    border:none;
+    border-radius:2px;
+    padding: 20px 22px;
+    margin: 0; 
+  }
+
+  .card.no-border{ border:none; }
+
+  .rot-l{ transform:rotate(-1deg); }
+  .rot-r{ transform:rotate(1deg); }
+  .rot-ls{ transform:rotate(-0.5deg); }
+  .rot-rs{ transform:rotate(0.6deg); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    text-align:center;
+    margin-bottom: 24px;
+    padding-top:10px;
+  }
+
+  .logo-container{
+    width:100%;
+    max-width:260px;
+    margin:0 auto 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .logo-container img{
+    max-width:100%;
+    height:auto;
+    display:block;
+  }
+
+  .genre-tags{
+    margin-top:12px;
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .genre-tags span{
+    font-family:"Times New Roman", Times, serif;
+    font-size:12px;
+    border:1px solid var(--ink);
+    padding:4px 12px;
+    border-radius:20px;
+    background:#ffffff;
+    color:var(--ink);
+  }
+
+  /* ---------- section heading ---------- */
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:12px;
+  }
+
+  .section-head h2{
+    font-size:24px;
+  }
+
+  .section-head .marker-label{
+    color:var(--sage);
+  }
+
+  /* ---------- about / bio ---------- */
+  .bio p{
+    margin:0 0 10px;
+    font-size:14px;
+  }
+
+  .bio p:last-child{
+    margin:0;
+  }
+
+  .bio-image{
+    float:right;
+    margin:0 0 12px 12px;
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border:1px solid #ddd;
+    display: inline-block;
+    transform: rotate(4deg); 
+  }
+
+  /* ---------- listen ---------- */
+  .platform-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:14px;
+  }
+
+  .platform-row a{
+    font-family:"Times New Roman", Times, serif;
+    font-size:12px;
+    text-decoration:none;
+    border:1px solid var(--ink);
+    border-radius:999px;
+    padding:4px 10px;
+    color:var(--ink);
+  }
+
+  /* pastel platform fills */
+  .btn-spotify  { background:#d9f7e4; border-color:#a9dfbe; }
+  .btn-apple    { background:#f7d9e6; border-color:#e7b7cb; }
+  .btn-ytmusic  { background:#fde2e2; border-color:#f3bcbc; }
+  .btn-amazon   { background:#fdebd3; border-color:#efc792; }
+  .btn-tidal    { background:#ececec; border-color:#cfcfcf; }
+  .btn-deezer   { background:#efe4ff; border-color:#d3baf7; }
+  .btn-pandora  { background:#e3e9ff; border-color:#bcc9f5; }
+  .btn-itunes   { background:#ffdbe9; border-color:#efb7cd; }
+  .btn-bandcamp { background:#dff3f7; border-color:#abdbe4; }
+
+  /* 3-Column layout for players/lists */
+  .music-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .spotify-embed{
+    width:100%;
+    border:0;
+    border-radius:12px;
+    display:block;
+  }
+
+  .track-list{
+    list-style:none;
+    margin:8px 0 0;
+    padding:0;
+    font-size:13px;
+  }
+
+  .track-list li{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    border-bottom:1px dotted var(--kraft-dark);
+    padding:4px 2px;
+  }
+
+  .track-list li a{
+    text-decoration:none;
+  }
+
+  /* Responsive YouTube video containers */
+  .video-container{
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    height:0;
+    border:1px solid var(--ink);
+    background:#000;
+  }
+
+  .video-container iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* ---------- photos ---------- */
+  .photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+    margin-top:10px;
+  }
+
+  .photo-tile{
+    aspect-ratio:4/5;
+    background:none; 
+    border:none;      
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .photo-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .download-note{
+    margin-top:10px;
+    font-size:12px;
+  }
+
+  /* ---------- live ---------- */
+  .video-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+    margin-top:4px;
+  }
+
+  /* ---------- connect ---------- */
+  .connect-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    font-size:13px;
+    margin-bottom:14px;
+  }
+
+  .block .marker-label{
+    display:block;
+    color:var(--sage);
+    margin-bottom:2px;
+  }
+
+  .block a{
+    color:var(--ink);
+    text-decoration:underline;
+  }
+
+  .social-strip{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    border-top:1px dashed var(--kraft-dark);
+    padding-top:10px;
+    margin-top:6px;
+  }
+
+  .social-strip a{
+    text-decoration:none;
+    border-bottom:1px solid var(--ink);
+    font-size:12px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    text-align:center;
+    margin-top:20px;
+  }
+
+  .footer-social-icons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+  }
+
+  .footer-social-icons a{
+    display:block;
+    width: 24px;  
+    height: 24px; 
+    color:var(--ink);
+  }
+
+  .footer-social-icons svg{
+    width:100%;
+    height:100%;
+    display:block;
+    fill:currentColor;
+  }
+
+  /* ---------- PDF Print Optimizations ---------- */
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 0;
+      background-size: contain;
+    }
+    .page {
+      max-width: 100%;
+    }
+    .card {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+
+  /* ---------- responsive breakdown ---------- */
+  @media (max-width: 768px){
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    body {
+      background-image: url('drawing4.png'), url('drawing2.png'), url('drawing3.png'), url('drawing1.png');
+      background-position: center 350px, center 25%, center 50%, center bottom;
+    }
+
+    .tape { display: none !important; }
+    .bio-image{ float:none; display:block; margin:0 auto 16px; }
+    .music-grid, .video-grid, .connect-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="logo-container">
+      <img src="name-logo.png" alt="kat sophia logo header">
+    </div>
+    <div class="genre-tags">
+      <span>singer-songwriter</span>
+      <span>indie</span>
+      <span>bedroom pop</span>
+    </div>
+  </header>
+
+  <div class="grid-container">
+    
+    <div class="left-col">
+      
+      <section class="card rot-l no-border">
+        <div class="tape" style="top:-8px; left:20%; z-index:11;"></div>
+        <div class="section-head">
+          <h2>about</h2>
+        </div>
+        <div class="bio">
+          <img src="right-image-option.jpg" alt="Kat" class="bio-image">
+          <p>Kat Sophia is an LA-based artist who fuses singer-songwriter sensibilities with indie pop. Through her music, she writes lyrics that explore the complex layers of love and emotional extremes through storytelling, and wants to put them to music that feels raw, whether that be through extremely crooked uses of indie and electronic sounds, or just her guitar.</p>
+          <p>Deeply embedded in her local music scene, Kat is currently learning production from and being mentored by a producer of artists including Halsey, Dominic Fike and Lil Nas X. She also covers major acts like Chappell Roan, Taylor Swift, and The Weeknd as a music journalist and photographer.</p>
+          <p>Her goal is to make music that makes you want to both cry and laugh, preferably at the same time.</p>
+        </div>
+      </section>
+
+      <!-- ============ LISTEN (UPDATED 3-COLUMN LAYOUT) ============ -->
+      <section class="card rot-r">
+        <div class="tape pink" style="top:-14px; left:24px; transform:rotate(-4deg);"></div>
+        <div class="section-head">
+          <h2>listen</h2>
+        </div>
+
+        <div class="platform-row">
+          <a href="https://open.spotify.com/artist/7D5Uii0nmQgdZJLkEcF5Bz?si=jx2my-mfTZ-r8gPW2PmbAg" class="btn-spotify">spotify</a>
+          <a href="https://music.apple.com/us/artist/kat-sophia/1672959916" class="btn-apple">apple music</a>
+          <a href="https://music.youtube.com/channel/UCFmQn3PTef-qjOXntqI4piw" class="btn-ytmusic">yt music</a>
+          <a href="https://katsophia.bandcamp.com/" class="btn-bandcamp">bandcamp</a>
+        </div>
+
+        <div class="music-grid">
+          <!-- Column 1: Spotify Embed -->
+          <div class="music-grid-item">
+            <iframe
+              class="spotify-embed"
+              src="https://open.spotify.com/embed/artist/7D5Uii0nmQgdZJLkEcF5Bz?si=sWXifRfZS26fGV7AfN05iA"
+              width="100%"
+              height="165"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <!-- Column 2: Unreleased Tracklist -->
+          <div class="music-grid-item">
+            <h3 style="margin: 0 0 4px 0; font-size: 14px; font-style: italic; font-weight: normal; border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 4px;">
+              unreleased:
+            </h3>
+            <ul class="track-list">
+              <li><a href="#" style="text-decoration: underline;">"POPPY POPPY"</a></li>
+              <li><a href="#" style="text-decoration: underline;">"ON& ON&"</a></li>
+              <li><a href="#" style="text-decoration: underline;">"Read Me"</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: YouTube MV Embed -->
+          <div class="music-grid-item">
+            <div class="video-container" style="border-radius: 6px; overflow: hidden;">
+              <iframe 
+                src="https://www.youtube.com/embed/V0D9n7JjoSI" 
+                title="Kat Sophia - New Year's" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <div class="right-col">
+      
+      <section class="card rot-ls">
+        <div class="tape sage" style="top:-14px; right:30px; transform:rotate(4deg);"></div>
+        <div class="section-head">
+          <h2>photos</h2>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-tile"><img src="katsophia-ruben-01.png" alt="Kat Sophia"></div>
+          <div class="photo-tile"><img src="katsophia-diego-02.png" alt="Kat Sophia"></div>
+          <div class="photo-tile"><img src="katsophia-ruben-03.png" alt="Kat Sophia"></div>
+        </div>
+        <p class="download-note">Photos by Ruben Duarte & Diego Andrade. <a href="#">Download</a></p>
+      </section>
+
+      <section class="card rot-r">
+        <div class="tape pink" style="top:-14px; left:40px; transform:rotate(3deg);"></div>
+        <div class="section-head">
+          <h2>live</h2>
+        </div>
+        <div class="video-grid">
+          <div class="video-grid-item">
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/ohYOn2ZPeSw" allowfullscreen></iframe></div>
+          </div>
+          <div class="video-grid-item">
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/GIR2Smk0OmE" allowfullscreen></iframe></div>
+          </div>
+          <div class="video-grid-item">
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/n4sJkv_kDA0" allowfullscreen></iframe></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card rot-l">
+        <div class="tape pink" style="top:-14px; left:50%; margin-left:-35px; transform:rotate(3deg);"></div>
+        <div class="section-head">
+          <h2>contact</h2>
+        </div>
+        <div class="connect-grid">
+          <div class="block"><span class="marker-label">email</span><a href="mailto:contact@katsophia.com">contact@katsophia.com</a></div>
+        </div>
+        <div class="social-strip">
+          <a href="https://katsophia.com/">website</a>
+          <a href="https://www.instagram.com/katsoyeehaw/">instagram</a>
+          <a href="https://discord.com/invite/xVYJrqqzTC">discord</a>
+          <a href="#">fan map</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-social-icons">
+      <a href="#" aria-label="Website"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" /><line x1="50" y1="3" x2="50" y2="97" /><line x1="3" y1="50" x2="97" y2="50" /><path d="M 50 3 A 25 47 0 0 0 50 97" /><path d="M 50 3 A 25 47 0 0 1 50 97" /><path d="M 3 50 A 47 25 0 0 0 97 50" /><path d="M 3 50 A 47 25 0 0 1 97 50" /></g></svg></a>
+      <a href="https://open.spotify.com/artist/7D5Uii0nmQgdZJLkEcF5Bz?si=jN8vZt0ARxiFYbW9MELjfQ" target="_blank" aria-label="Spotify">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"/>
+        </svg>
+      </a>
+      <a href="https://music.apple.com/us/artist/kat-sophia/1672959916" target="_blank" aria-label="Apple Music">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <path d="M44.527344 34.75C43.449219 37.144531 42.929688 38.214844 41.542969 40.328125C39.601563 43.28125 36.863281 46.96875 33.480469 46.992188C30.46875 47.019531 29.691406 45.027344 25.601563 45.0625C21.515625 45.082031 20.664063 47.03125 17.648438 47C14.261719 46.96875 11.671875 43.648438 9.730469 40.699219C4.300781 32.429688 3.726563 22.734375 7.082031 17.578125C9.457031 13.921875 13.210938 11.773438 16.738281 11.773438C20.332031 11.773438 22.589844 13.746094 25.558594 13.746094C28.441406 13.746094 30.195313 11.769531 34.351563 11.769531C37.492188 11.769531 40.8125 13.480469 43.1875 16.433594C35.421875 20.691406 36.683594 31.78125 44.527344 34.75ZM31.195313 8.46875C32.707031 6.527344 33.855469 3.789063 33.4375 1C30.972656 1.167969 28.089844 2.742188 26.40625 4.78125C24.878906 6.640625 23.613281 9.398438 24.105469 12.066406C26.796875 12.152344 29.582031 10.546875 31.195313 8.46875Z"></path>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/katsoyeehaw/" target="_blank" aria-label="Instagram">
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.0301 0.084c-1.2768 0.0602 -2.1487 0.264 -2.911 0.5634 -0.7888 0.3075 -1.4575 0.72 -2.1228 1.3877 -0.6652 0.6677 -1.075 1.3368 -1.3802 2.127 -0.2954 0.7638 -0.4956 1.6365 -0.552 2.914 -0.0564 1.2775 -0.0689 1.6882 -0.0626 4.947 0.0062 3.2586 0.0206 3.6671 0.0825 4.9473 0.061 1.2765 0.264 2.1482 0.5635 2.9107 0.308 0.7889 0.72 1.4573 1.388 2.1228 0.6679 0.6655 1.3365 1.0743 2.1285 1.38 0.7632 0.295 1.6361 0.4961 2.9134 0.552 1.2773 0.056 1.6884 0.069 4.9462 0.0627 3.2578 -0.0062 3.668 -0.0207 4.9478 -0.0814 1.28 -0.0607 2.147 -0.2652 2.9098 -0.5633 0.7889 -0.3086 1.4578 -0.72 2.1228 -1.3881 0.665 -0.6682 1.0745 -1.3378 1.3795 -2.1284 0.2957 -0.7632 0.4966 -1.636 0.552 -2.9124 0.056 -1.2809 0.0692 -1.6898 0.063 -4.948 -0.0063 -3.2583 -0.021 -3.6668 -0.0817 -4.9465 -0.0607 -1.2797 -0.264 -2.1487 -0.5633 -2.9117 -0.3084 -0.7889 -0.72 -1.4568 -1.3876 -2.1228C21.2982 1.33 20.628 0.9208 19.8378 0.6165 19.074 0.321 18.2017 0.1197 16.9244 0.0645 15.6471 0.0093 15.236 -0.005 11.977 0.0014 8.718 0.0076 8.31 0.0215 7.0301 0.0839m0.1402 21.6932c-1.17 -0.0509 -1.8053 -0.2453 -2.2287 -0.408 -0.5606 -0.216 -0.96 -0.4771 -1.3819 -0.895 -0.422 -0.4178 -0.6811 -0.8186 -0.9 -1.378 -0.1644 -0.4234 -0.3624 -1.058 -0.4171 -2.228 -0.0595 -1.2645 -0.072 -1.6442 -0.079 -4.848 -0.007 -3.2037 0.0053 -3.583 0.0607 -4.848 0.05 -1.169 0.2456 -1.805 0.408 -2.2282 0.216 -0.5613 0.4762 -0.96 0.895 -1.3816 0.4188 -0.4217 0.8184 -0.6814 1.3783 -0.9003 0.423 -0.1651 1.0575 -0.3614 2.227 -0.4171 1.2655 -0.06 1.6447 -0.072 4.848 -0.079 3.2033 -0.007 3.5835 0.005 4.8495 0.0608 1.169 0.0508 1.8053 0.2445 2.228 0.408 0.5608 0.216 0.96 0.4754 1.3816 0.895 0.4217 0.4194 0.6816 0.8176 0.9005 1.3787 0.1653 0.4217 0.3617 1.056 0.4169 2.2263 0.0602 1.2655 0.0739 1.645 0.0796 4.848 0.0058 3.203 -0.0055 3.5834 -0.061 4.848 -0.051 1.17 -0.245 1.8055 -0.408 2.2294 -0.216 0.5604 -0.4763 0.96 -0.8954 1.3814 -0.419 0.4215 -0.8181 0.6811 -1.3783 0.9 -0.4224 0.1649 -1.0577 0.3617 -2.2262 0.4174 -1.2656 0.0595 -1.6448 0.072 -4.8493 0.079 -3.2045 0.007 -3.5825 -0.006 -4.848 -0.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0 -1.437 1.4424M5.8385 12.012c0.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026 -0.0065 6.157 -2.7701 6.1506 -6.1733 -0.0065 -3.4032 -2.771 -6.1565 -6.174 -6.1498 -3.403 0.0067 -6.156 2.771 -6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"></path>
+        </svg>
+      </a>
+      <a href="https://www.youtube.com/channel/UCnG41XAjVgMrcFCuXh_e52g" target="_blank" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+        </svg>
+      </a>
+      <a href="https://discord.gg/xVYJrqqzTC" target="_blank" aria-label="Discord">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
